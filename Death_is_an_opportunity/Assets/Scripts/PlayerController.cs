@@ -27,6 +27,13 @@ public class Player : MonoBehaviour
     private float groundCheckDelay = 0.3f;
     private float playerHeight;
     private float raycastDistance;
+    
+    
+    [Header("Audio")]
+    public AudioSource footstepSource; // Assign an AudioSource in Inspector
+    public AudioClip[] footstepClip; // Assign a footstep sound
+    public float stepInterval = 0.5f; // Time between footsteps
+    private float stepTimer = 0f;
 
     void Start()
     {
@@ -49,6 +56,24 @@ public class Player : MonoBehaviour
         moveForward = Input.GetAxisRaw("Vertical");
 
         RotateCamera();
+        
+        // Footstep sound
+        if (isGrounded && (moveHorizontal != 0 || moveForward != 0))
+        {
+            stepTimer -= Time.deltaTime;
+            if (stepTimer <= 0f)
+            {
+                //Pick random sound
+                AudioClip clip = footstepClip[Random.Range(0, footstepClip.Length)];
+                footstepSource.PlayOneShot(clip);
+                stepTimer = stepInterval;
+            }
+        }
+        else
+        {
+            stepTimer = 0f; // Reset timer if player stops moving
+        }
+        
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {

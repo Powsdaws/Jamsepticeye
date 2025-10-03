@@ -6,6 +6,7 @@ public class ClueManager : MonoBehaviour
 {
     public static ClueManager instance;
     private List<Clue> foundClues = new List<Clue>();
+    public List<Clue> allClues; // drag all clue assets here
 
     private void Awake()
     {
@@ -13,7 +14,7 @@ public class ClueManager : MonoBehaviour
         else Destroy(gameObject);
         
         //reset isfound on clues
-        foreach (Clue clue in foundClues)
+        foreach (Clue clue in allClues)
         {
             clue.isFound = false;
         }

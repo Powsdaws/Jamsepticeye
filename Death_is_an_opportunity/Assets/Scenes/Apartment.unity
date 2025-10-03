@@ -1614,11 +1614,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2555677891503486508, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
   m_PrefabInstance: {fileID: 1343556693}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &532674978 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2899270518346755222, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
-  m_PrefabInstance: {fileID: 1343556693}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &532674979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,7 +1925,6 @@ Transform:
   - {fileID: 1366779030}
   - {fileID: 2075508904}
   - {fileID: 1242425484}
-  - {fileID: 532674978}
   - {fileID: 1380552375}
   - {fileID: 154430360}
   - {fileID: 1762328646}
@@ -4261,6 +4255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c05e0a40bb398345a527aa2cc2918c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClueManager
+  allClues:
+  - {fileID: 11400000, guid: 0ba4254d74eaa6243a9eca9a3c10d541, type: 2}
 --- !u!4 &1229421909
 Transform:
   m_ObjectHideFlags: 0
@@ -4926,7 +4922,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 627414034}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2555677891503486508, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
       propertyPath: m_Name
@@ -4934,23 +4930,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2555677891503486508, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2899270518346755222, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.423
+      value: -0.8004202
       objectReference: {fileID: 0}
     - target: {fileID: 2899270518346755222, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.537
+      value: 0.11724001
       objectReference: {fileID: 0}
     - target: {fileID: 2899270518346755222, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.501
+      value: 2.5848408
       objectReference: {fileID: 0}
     - target: {fileID: 2899270518346755222, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071072
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2899270518346755222, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4958,7 +4954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2899270518346755222, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071064
+      value: 0.0000005364418
       objectReference: {fileID: 0}
     - target: {fileID: 2899270518346755222, guid: 875802cb96bef89419c2f4f6b5daa8ba, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7397,7 +7393,7 @@ GameObject:
   - component: {fileID: 2130024101}
   - component: {fileID: 2130024100}
   - component: {fileID: 2130024099}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7552,6 +7548,7 @@ SceneRoots:
   - {fileID: 225670100}
   - {fileID: 900717974}
   - {fileID: 1229421909}
+  - {fileID: 1343556693}
   - {fileID: 1297035690}
   - {fileID: 1074796231}
   - {fileID: 1568277773}

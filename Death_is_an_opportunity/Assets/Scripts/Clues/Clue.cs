@@ -7,4 +7,7 @@ public class Clue : ScriptableObject
     [TextArea] public string description;
     public Sprite clueIcon; // Optional UI icon
     public bool isFound = false;
+    
+
+    
 }

@@ -28,7 +28,7 @@ public class CluePickup : MonoBehaviour
             clueData.isFound = true;
             Debug.Log("Found clue: " + clueData.clueName);
             ClueManager.instance.AddClue(clueData);
-            Destroy(gameObject); // remove after pickup
+            //Destroy(gameObject); // remove after pickup
         }
     }
 

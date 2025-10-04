@@ -67,4 +67,9 @@ public class Ghost : MonoBehaviour
             r.enabled = visible;
         }
     }
+
+    public void OnObjectFixed()
+    {
+        SetGhostVisible(false);
+    }
 }

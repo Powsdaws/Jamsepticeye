@@ -8,6 +8,8 @@ public class Ghost : MonoBehaviour
     [TextArea] public string dialogueAfter;  // says this when all clues found
     public Clue[] requiredClues;
     
+    public AudioSource mumbleSource;
+    public AudioClip[] ghostClip;
     public Tool requiredTool;
 
     private bool hasAppeared = false;
@@ -45,6 +47,7 @@ public class Ghost : MonoBehaviour
         if (!hasAppeared)
         {
             hasAppeared = true;
+            if (mumbleSource != null) mumbleSource.PlayOneShot(ghostClip[Random.Range(0, ghostClip.Length)]);
             SetGhostVisible(true);
             Speak(dialogueAfter, ghostName);
         }

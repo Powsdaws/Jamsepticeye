@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed463f6374040ba42b65ce2b7a43ef92, type: 3}
   m_Name: Wrench
   m_EditorClassIdentifier: Assembly-CSharp::Tool
-  toolName: 
+  toolName: Wrench
   description: 
   icon: {fileID: 0}
-  isCollected: 0
+  isCollected: 1

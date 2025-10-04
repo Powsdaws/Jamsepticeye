@@ -4682,30 +4682,9 @@ MonoBehaviour:
   requiredClues:
   - {fileID: 11400000, guid: 0ba4254d74eaa6243a9eca9a3c10d541, type: 2}
   mumbleSource: {fileID: 542115916}
-  ghostClip: []
+  ghostClip:
+  - {fileID: 8300000, guid: f4510c7e255264c4dadb8a39e7bc62ad, type: 3}
   requiredTool: {fileID: 0}
---- !u!64 &542115921
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542115915}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!4 &544708744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6091484609221536768, guid: 9add95861c8c08d4da62056dc6bd20ab, type: 3}
@@ -9049,9 +9028,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 498253721416304272, guid: f6ab88624626d1249bd73bcb4a1c7d59, type: 3}
       insertIndex: -1
       addedObject: {fileID: 542115916}
-    - targetCorrespondingSourceObject: {fileID: 498253721416304272, guid: f6ab88624626d1249bd73bcb4a1c7d59, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 542115921}
   m_SourcePrefab: {fileID: 100100000, guid: f6ab88624626d1249bd73bcb4a1c7d59, type: 3}
 --- !u!1001 &1084740676
 PrefabInstance:
@@ -14882,7 +14858,6 @@ MonoBehaviour:
   foundClues: []
   allClues:
   - {fileID: 11400000, guid: 0ba4254d74eaa6243a9eca9a3c10d541, type: 2}
-  - {fileID: 0}
 --- !u!4 &1229421909
 Transform:
   m_ObjectHideFlags: 0

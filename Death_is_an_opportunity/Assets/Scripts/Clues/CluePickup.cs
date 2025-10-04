@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 
 public class CluePickup : MonoBehaviour
@@ -28,6 +29,7 @@ public class CluePickup : MonoBehaviour
             clueData.isFound = true;
             Debug.Log("Found clue: " + clueData.clueName);
             ClueManager.instance.AddClue(clueData);
+            InventoryUI.instance.RefreshClues();
             //Destroy(gameObject); // remove after pickup
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClueManager : MonoBehaviour
 {
     public static ClueManager instance;
-    private List<Clue> foundClues = new List<Clue>();
+    public List<Clue> foundClues = new List<Clue>();
     public List<Clue> allClues; // drag all clue assets here
 
     private void Awake()

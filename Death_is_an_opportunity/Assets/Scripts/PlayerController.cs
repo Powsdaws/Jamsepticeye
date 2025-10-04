@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 
 /*
@@ -6,6 +7,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //Inventory
+    public GameObject inventoryPanel;
+    private bool isOpen = false;
+    
+    
     // Camera Rotation
     public float mouseSensitivity = 2f;
     private float verticalRotation = 0f;
@@ -89,6 +95,19 @@ public class Player : MonoBehaviour
         else
         {
             groundCheckTimer -= Time.deltaTime;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isOpen = !isOpen; // toggle state
+            inventoryPanel.SetActive(isOpen);
+
+            if (isOpen)
+            {
+                // Refresh the inventory when opening
+                InventoryUI.instance.RefreshClues();
+                //InventoryUI.instance.RefreshTools();
+            }
         }
 
     }

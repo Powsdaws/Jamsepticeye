@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 
 namespace Tools
@@ -34,6 +35,7 @@ namespace Tools
                 UIManager.instance.ShowMessage($"You picked up the {toolData.toolName}!");
                 Debug.Log("Found clue: " + toolData.toolName);
                 ToolManagerE.instance.AddTool(toolData);
+                //InventoryUI.instance.RefreshTools();
                 Destroy(gameObject); // remove after pickup
             }
         }

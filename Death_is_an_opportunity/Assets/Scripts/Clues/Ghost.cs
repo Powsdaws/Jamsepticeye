@@ -4,50 +4,64 @@ public class Ghost : MonoBehaviour
 {
     [Header("Ghost Info")]
     public string ghostName;
-    [TextArea] public string dialogueBefore; // What ghost says if clues are missing
-    [TextArea] public string dialogueAfter;  // What ghost says once all clues are found
+    [TextArea] public string dialogueBefore; // says this when player enters room
+    [TextArea] public string dialogueAfter;  // says this when all clues found
     public Clue[] requiredClues;
+    
+    public Tool requiredTool;
 
     private bool hasAppeared = false;
+    private bool hasSpokenBefore = false;
 
     private void Start()
     {
-        // Hide ghost until clues are ready
-        hasAppeared = false;
-        gameObject.SetActive(false); // Ghost always hidden at the start
+        // Optional: make ghost semi-transparent at start
+        SetGhostVisible(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // When player enters the room and ghost hasn't appeared yet
+            if (!hasAppeared && !hasSpokenBefore)
+            {
+                hasSpokenBefore = true;
+                Speak(dialogueBefore, ".*-.-.(unknown ghost):");
+            }
+        }
     }
 
     public void CheckClues()
     {
-        foreach (Clue clue in requiredClues)
-        {
-            if (!clue.isFound) return; // Some clues not found yet
-        }
-
-        if (!hasAppeared)
-        {
-            gameObject.SetActive(true); // Ghost appears
-            hasAppeared = true;
-            TalkToGhost();
-
-            // UI message
-            UIManager.instance.ShowMessage($"{ghostName} has appeared!");
-        }
-    }
-
-    public void TalkToGhost()
-    {
+        // Check if all required clues are found
         foreach (Clue clue in requiredClues)
         {
             if (!clue.isFound)
-            {
-                Debug.Log(dialogueBefore);
-                UIManager.instance.ShowMessage(dialogueBefore);
-                return;
-            }
+                return; // not all clues yet
         }
 
-        Debug.Log(dialogueAfter);
-        UIManager.instance.ShowMessage(dialogueAfter);
+        // All clues found, reveal ghost
+        if (!hasAppeared)
+        {
+            hasAppeared = true;
+            SetGhostVisible(true);
+            Speak(dialogueAfter, ghostName);
+        }
+    }
+
+    private void Speak(string message, string ghost_name)
+    {
+        Debug.Log($".*-.-.(unknown ghost): {message}");
+        UIManager.instance.ShowMessage($"{ghost_name}: {message}");
+    }
+
+    private void SetGhostVisible(bool visible)
+    {
+        // Toggles renderer visibility
+        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        {
+            r.enabled = visible;
+        }
     }
 }

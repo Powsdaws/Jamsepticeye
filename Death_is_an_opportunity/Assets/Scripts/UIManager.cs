@@ -6,7 +6,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     public TextMeshProUGUI clueMessageText;
-    public float messageDuration = 3f;
+    public float messageDuration = 4f;
 
     private void Awake()
     {

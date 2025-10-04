@@ -70,6 +70,7 @@ public class Ghost : MonoBehaviour
 
     public void OnObjectFixed()
     {
+        GhostManager.instance.GhostFound();
         SetGhostVisible(false);
     }
 }

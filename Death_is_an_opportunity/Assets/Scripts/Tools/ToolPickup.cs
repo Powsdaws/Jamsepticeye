@@ -12,6 +12,9 @@ namespace Tools
         public float hoverHeight = 0.2f;     // how much it moves up
         public float hoverSpeed = 5f;        // how fast it moves
 
+        
+        public AudioSource pickUpSource;
+        public AudioClip[] pickUpClip;
     
     
         void Start()
@@ -33,10 +36,11 @@ namespace Tools
             {
                 toolData.isCollected = true;
                 UIManager.instance.ShowMessage($"You picked up the {toolData.toolName}!");
+                if (pickUpSource != null) pickUpSource.PlayOneShot(pickUpClip[0]);
                 Debug.Log("Found clue: " + toolData.toolName);
                 ToolManagerE.instance.AddTool(toolData);
                 //InventoryUI.instance.RefreshTools();
-                Destroy(gameObject); // remove after pickup
+                Destroy(gameObject, pickUpClip.Length); // remove after pickup
             }
         }
         

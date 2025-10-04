@@ -36,10 +36,10 @@ public class Player : MonoBehaviour
     
     
     [Header("Audio")]
-    public AudioSource footstepSource; // Assign an AudioSource in Inspector
-    public AudioClip[] footstepClip; // Assign a footstep sound
-    public float stepInterval = 0.5f; // Time between footsteps
-    private float stepTimer = 0f;
+    public AudioSource walkAudio;
+    [Range(0,1)] public float maxWalkVolume = 0.7f; // max volume of walk sound
+    public float fadeSpeed = 3f; // how fast volume fades in/out
+
 
     void Start()
     {
@@ -63,22 +63,6 @@ public class Player : MonoBehaviour
 
         RotateCamera();
         
-        // Footstep sound
-        if (isGrounded && (moveHorizontal != 0 || moveForward != 0))
-        {
-            stepTimer -= Time.deltaTime;
-            if (stepTimer <= 0f)
-            {
-                //Pick random sound
-                AudioClip clip = footstepClip[Random.Range(0, footstepClip.Length)];
-                footstepSource.PlayOneShot(clip);
-                stepTimer = stepInterval;
-            }
-        }
-        else
-        {
-            stepTimer = 0f; // Reset timer if player stops moving
-        }
         
 
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -129,6 +113,8 @@ public class Player : MonoBehaviour
         velocity.x = targetVelocity.x;
         velocity.z = targetVelocity.z;
         rb.linearVelocity = velocity;
+        // Footstep sound
+        HandleWalkSound(velocity);
 
         // If we aren't moving and are on the ground, stop velocity so we don't slide
         if (isGrounded && moveHorizontal == 0 && moveForward == 0)
@@ -136,6 +122,21 @@ public class Player : MonoBehaviour
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
         }
     }
+    
+    private void HandleWalkSound(Vector3 move)
+    {
+        float targetVolume = (move.magnitude > 0.1f && isGrounded) ? maxWalkVolume : 0f;
+        walkAudio.volume = Mathf.Lerp(walkAudio.volume, targetVolume, Time.deltaTime * fadeSpeed);
+
+        // Start audio if moving and not already playing
+        if (!walkAudio.isPlaying && targetVolume > 0.01f)
+            walkAudio.Play();
+
+        // Stop audio if volume is almost zero
+        if (walkAudio.isPlaying && walkAudio.volume < 0.08f)
+            walkAudio.Stop();
+    }
+
 
     void RotateCamera()
     {

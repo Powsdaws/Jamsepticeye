@@ -5,7 +5,7 @@ public class CluePickup : MonoBehaviour
     public Clue clueData;
 
     private Vector3 originalPosition;
-    private bool isHovered = false;
+    public bool isHovered = false;
     public float hoverHeight = 0.2f;     // how much it moves up
     public float hoverSpeed = 5f;        // how fast it moves
 
@@ -32,7 +32,7 @@ public class CluePickup : MonoBehaviour
         }
     }
 
-    public void Highlight(bool active)
+    public void Hover(bool active)
     {
         isHovered = active;
     }

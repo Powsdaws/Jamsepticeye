@@ -5263,7 +5263,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f4510c7e255264c4dadb8a39e7bc62ad, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.133
   m_Pitch: 1
@@ -5392,6 +5392,7 @@ MonoBehaviour:
   mumbleSource: {fileID: 542115916}
   ghostClip:
   - {fileID: 8300000, guid: f4510c7e255264c4dadb8a39e7bc62ad, type: 3}
+  disappearSound: {fileID: 8300000, guid: c7c2eb276a4e0774fbe4418f71a082bc, type: 3}
   requiredTool: {fileID: 0}
 --- !u!4 &544708744 stripped
 Transform:
@@ -5949,7 +5950,8 @@ MonoBehaviour:
   mumbleSource: {fileID: 610766731}
   ghostClip:
   - {fileID: 8300000, guid: f4510c7e255264c4dadb8a39e7bc62ad, type: 3}
-  requiredTool: {fileID: 11400000, guid: 2e0e4f7bbfcd4db4a9d1f91e5863bb69, type: 2}
+  disappearSound: {fileID: 8300000, guid: c7c2eb276a4e0774fbe4418f71a082bc, type: 3}
+  requiredTool: {fileID: 0}
 --- !u!65 &610766727
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6885,7 +6887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &726041261
 Transform:
   m_ObjectHideFlags: 0
@@ -18189,7 +18191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1331205502
 Transform:
   m_ObjectHideFlags: 0
@@ -19354,7 +19356,8 @@ MonoBehaviour:
   mumbleSource: {fileID: 1381506030}
   ghostClip:
   - {fileID: 8300000, guid: f4510c7e255264c4dadb8a39e7bc62ad, type: 3}
-  requiredTool: {fileID: 11400000, guid: 8fb702192f627cf4890660819ab926a8, type: 2}
+  disappearSound: {fileID: 8300000, guid: c7c2eb276a4e0774fbe4418f71a082bc, type: 3}
+  requiredTool: {fileID: 0}
 --- !u!4 &1388483465 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7060587177106730412, guid: a7ab1bb90a3206b4b83bff2c6fef346d, type: 3}
@@ -20625,6 +20628,7 @@ MonoBehaviour:
   mumbleSource: {fileID: 1520161231}
   ghostClip:
   - {fileID: 8300000, guid: f4510c7e255264c4dadb8a39e7bc62ad, type: 3}
+  disappearSound: {fileID: 8300000, guid: c7c2eb276a4e0774fbe4418f71a082bc, type: 3}
   requiredTool: {fileID: 0}
 --- !u!65 &1520161233
 BoxCollider:
@@ -23164,6 +23168,7 @@ MonoBehaviour:
   mumbleSource: {fileID: 1806157912}
   ghostClip:
   - {fileID: 8300000, guid: f4510c7e255264c4dadb8a39e7bc62ad, type: 3}
+  disappearSound: {fileID: 8300000, guid: c7c2eb276a4e0774fbe4418f71a082bc, type: 3}
   requiredTool: {fileID: 0}
 --- !u!65 &1806157914
 BoxCollider:

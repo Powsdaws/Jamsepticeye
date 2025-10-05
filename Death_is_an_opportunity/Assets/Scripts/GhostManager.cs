@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -40,6 +42,14 @@ public class GhostManager : MonoBehaviour
     {
         Debug.Log("All ghosts found! Game Completed!");
         UIManager.instance.ShowMessage("All ghosts found! You win!");
+        
+        StartCoroutine(LoadEndSceneAfterDelay(5f));
         // Optional: trigger scene change or victory UI
+    }
+    
+    IEnumerator LoadEndSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("EndScene");
     }
 }

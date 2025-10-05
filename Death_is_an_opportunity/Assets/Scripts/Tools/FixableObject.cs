@@ -13,7 +13,7 @@ public class FixableObject : MonoBehaviour
         if (ToolManagerE.instance.HasTool(requiredTool))
         {
             isFixed = true;
-            UIManager.instance.ShowMessage("You fixed the leak!");
+            UIManager.instance.ShowMessage("You fixed an issue!");
             // Optional: Play particle effect, stop water sound, etc.
             if (associatedGhost != null)
             {

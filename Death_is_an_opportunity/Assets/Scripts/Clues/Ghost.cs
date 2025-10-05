@@ -12,6 +12,7 @@ public class Ghost : MonoBehaviour
     
     public AudioSource mumbleSource;
     public AudioClip[] ghostClip;
+    public AudioClip disappearSound;
     public Tool requiredTool;
 
     private bool hasAppeared = false;
@@ -73,6 +74,14 @@ public class Ghost : MonoBehaviour
 
     public void OnObjectFixed()
     {
+        
+        if (disappearSound != null)
+        {
+            Debug.Log("Played ghost disappear sound (world instance)!");
+            AudioSource.PlayClipAtPoint(disappearSound, transform.position, 0.1f);
+        }
+
+        
         GhostManager.instance.GhostFound();
         if (disappearEffectPrefab)
         {

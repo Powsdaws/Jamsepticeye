@@ -7,6 +7,8 @@ public class Ghost : MonoBehaviour
     [TextArea] public string dialogueBefore; // says this when player enters room
     [TextArea] public string dialogueAfter;  // says this when all clues found
     public Clue[] requiredClues;
+    public GameObject disappearEffectPrefab;
+    
     
     public AudioSource mumbleSource;
     public AudioClip[] ghostClip;
@@ -47,6 +49,7 @@ public class Ghost : MonoBehaviour
         if (!hasAppeared)
         {
             hasAppeared = true;
+           
             if (mumbleSource != null) mumbleSource.PlayOneShot(ghostClip[Random.Range(0, ghostClip.Length)]);
             SetGhostVisible(true);
             Speak(dialogueAfter, ghostName);
@@ -71,6 +74,10 @@ public class Ghost : MonoBehaviour
     public void OnObjectFixed()
     {
         GhostManager.instance.GhostFound();
-        SetGhostVisible(false);
+        if (disappearEffectPrefab)
+        {
+            Instantiate(disappearEffectPrefab, transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject, 0.2f);
     }
 }
